@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+   <link rel="stylesheet" href="./styles/news.css">
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <div id="headline">
+          <!--add headline here-->
+        </div>
+        <img id="img" src="" alt="" />
+        <!--show news image here-->
+
+
+        <div id="content">
+          <!--add news content here-->
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+<script type="module">
+
+  let data = JSON.parse(localStorage.getItem("search_term")) ||[]
+
+  console.log(data)
+
+    import { apiCall, appendArticles } from "./scripts/main.js"
+
+    import sidebar from "./components/sidebar.js"
+  document.getElementById("sidebar").innerHTML = sidebar()
+
+
+  let line = document.getElementById("headline")
+
+  let img_div= document.getElementById("img")
+
+  let content = document.getElementById("content")
+
+  display(data)
+ // let headline;
+  function display(){
+
+     let line = document.getElementById("headline");
+   // console.log(headline)
+    line.innerText=data.name
+
+    img.src=data.image
+
+    content.innerText=data.detail
+   
+  }
+
+</script>
